@@ -1,0 +1,42 @@
+﻿@page "/"
+
+@using Facturation.Shared
+
+@inject IBusinessData data
+<h1>Application de Facturation Client</h1>
+
+@*<SurveyPrompt Title="How is Blazor working for you?" />*@
+
+<h1>Liste des factures clientes en cours</h1>
+
+
+@if (data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Montant restant Du</th>
+                <th>Montant Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Facture in data.Factures)
+            {
+                <tr>
+                    <td>@Facture.Client)</td>
+                    <td>@Facture.MontantDu</td>
+                    <td>@Facture.MontantTotal</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+
