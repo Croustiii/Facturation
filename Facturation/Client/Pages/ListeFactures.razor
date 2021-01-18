@@ -1,0 +1,35 @@
+﻿@page "/ListeFactures"
+@using Facturation.Shared
+
+@inject HttpClient client
+@inject IBusinessData data
+
+<h2>ListeFactures</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reference</th>
+            <th>Date</th>
+            <th>Client</th>
+            <th>Montant</th>
+            <th>Payé</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Facture in data.AllFactures)
+        {
+            <tr>
+                <td>@Facture.Reference</td>
+                <td>@Facture.DateCreation.ToShortDateString()</td>
+                <td>@Facture.Client</td>
+
+                <td>@Facture.Montant.ToString("€ 0.00")</td>
+                <td>@Facture.Payé.ToString("€ 0.00")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

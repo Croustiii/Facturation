@@ -6,7 +6,13 @@ namespace Facturation.Shared
 {
     public interface IBusinessData
     {
-        IEnumerable<Facture> Factures { get; }
+        IEnumerable<Facture> AllFactures { get; }
+
+        decimal SalesRevenue { get; }
+
+        decimal Outstanding { get; }
+
+
 
     }
 }
